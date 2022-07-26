@@ -162,6 +162,16 @@ public class ModelSettingFragment extends BaseLazyFragment {
                     });
             }
         });
+        findViewById(R.id.llWpRecovery).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FastClickCheckUtil.check(v);
+                File wp = new File(requireActivity().getFilesDir().getAbsolutePath() + "/wp");
+                if (wp.exists())
+                    wp.delete();
+                ((BaseActivity) requireActivity()).changeWallpaper(true);
+            }
+        });
         findViewById(R.id.llHomeApi).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
